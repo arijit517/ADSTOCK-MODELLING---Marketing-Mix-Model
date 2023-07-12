@@ -1,0 +1,47 @@
+
+
+	CODE
+
+# MMM ADSTOCK MEDELING
+
+install.packages("bayesm")
+library(bayesm)
+
+data("cheese")
+summary(cheese)
+head(cheese)
+
+install.packages("dplyr")
+library(dplyr)
+
+adstock <- function(data, rate) {
+  return(as.numeric(filter(x=data, filter=rate, method="recursive")))
+}
+
+x1 <- adstock(cheese$DISP, 0.5)
+x2 <- log(cheese$VOLUME)
+x3 <- log(cheese$PRICE)
+
+mod <- lm(formula= x2 ~ x1 + x3, data= cheese)
+summary(mod)# MMM ADSTOCK MEDELING
+
+install.packages("bayesm")
+library(bayesm)
+
+data("cheese")
+summary(cheese)
+head(cheese)
+
+install.packages("dplyr")
+library(dplyr)
+
+adstock <- function(data, rate) {
+  return(as.numeric(filter(x=data, filter=rate, method="recursive")))
+}
+
+x1 <- adstock(cheese$DISP, 0.5)
+x2 <- log(cheese$VOLUME)
+x3 <- log(cheese$PRICE)
+
+mod <- lm(formula= x2 ~ x1 + x3, data= cheese)
+summary(mod)
